@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SignUp</title>
 
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="../css/registration.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.5.0/js/md5.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    
     <script src="../js/sessionHandle.js"></script>
 
     <script src="../js/registration.js"></script>
@@ -27,7 +27,7 @@
 <body>
     <nav class="navbar navbar-expand-lg text-uppercase  py-3 myNav">
         <div class="container">
-            <a class="navbar-brand" href="../pages/homePage.html">Comfy</a>
+            <a class="navbar-brand" href="../pages/index.html">Comfy</a>
         </div>
     </nav>
 
@@ -74,17 +74,6 @@
                             <label for="confirmpass">Confirm Password</label>
                         </div>
 
-                        <div class="form-floating">
-                            <input type="text" disabled class="form-control mb-3" id="securityque"
-                                value="What is your favorite animal?" required />
-                            <label for="securityque">Security Question</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="text" class="form-control mb-3" id="securityans"
-                                placeholder="Enter Security Question's Answer" minlength="3" required />
-                            <label for="securityans">Security Question's Answer</label>
-                        </div>
-
                         <div class="form-group">
                             <button type="submit" id="registerbtn" class="loginbutton btn btn-lg">
                                 Register
@@ -100,11 +89,10 @@
         </div>
     </div>
 
-    <!-- Around the web part -->
-    <div class="container-fluid footer-container">
+    <!-- Footer Section -->
+    <footer class="container-fluid footer-container">
         <section class="footer text-center ">
-            <br /><br />
-            <div class="container">
+            <div class="container pt-5">
                 <div class="row d-flex align-items-center flex-column">
                     <div class="col-lg-4 mb-5">
                         <h4 class="text-uppercase mb-4">Around the Web</h4>
@@ -117,7 +105,7 @@
                 </div>
             </div>
         </section>
-    </div>
+    </footer>
 
 
 

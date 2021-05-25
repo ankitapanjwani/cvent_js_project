@@ -6,7 +6,7 @@
     z-index: 30;
     top: 0;
     right: 0;
-    background-color: rgba(255, 201, 119, 0.966);
+    background-color: rgba(240, 206, 156, 0.966);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -36,16 +36,22 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      width: 500px;
       /* justify-content: space-evenly; */
   }
   .product-details{
     display: flex;
     flex-direction: column;
+    width: 100px;
     /* align-items: center; */
   }
   .product-details p{
-      font-size: 15px;
+      font-size: 1rem;
       margin-bottom: 0;
+  }
+  .product-name{
+    font-weight: bold;
+    font-family: 'Kaushan Script', cursive;;
   }
   .image-div{
       margin-left: 5%;
@@ -53,10 +59,10 @@
       /* border: 1px solid black; */
       height: 70px;
       width: 100px;
-      object-fit: cover;
+      /* object-fit: cover; */
   }
   .product-div{
-      margin-left: 5%;
+      margin-left: 5%; 
       /* border: 1px solid black; */
       height: 70px;
   }
@@ -68,6 +74,8 @@
   .quantity-div{
       margin-left: 30%;
       /* border: 1px solid black; */
+      
+      cursor: pointer;
       height: 70px;
   }
   .quantity-div p{
@@ -80,7 +88,7 @@
     text-align: center;
     /* bottom: 15%; */
     margin-bottom: 5%;
-    margin-top: 120%;
+    margin-top: 70%;
     width: 250px;
     margin-left: 18%;
     
@@ -96,7 +104,9 @@
     font-size: 20px;
     font-weight: 500;
   }
-
+.remove-icon{
+  cursor: pointer;
+}
   .drawer-price-section{
     margin-left: 15%;
 
@@ -109,6 +119,7 @@
 
   .increment-icon{
       cursor: pointer;
+      color: #807878;
   }
 
 #cart-items{
@@ -219,4 +230,10 @@
   height: 100vh;
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.5);
+} 
+
+#empty-cart-image{
+  
+  margin-top: 20%;
+  text-align: center;
 }

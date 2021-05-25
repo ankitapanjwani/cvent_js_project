@@ -24,13 +24,17 @@ window.addEventListener('load', async (event) => {
         <div class="product-detail-price">&#8377; ${productname.product_price}</div>
         <div> <span class="dot1"></span><span class="dot2"></span></div>
         <div class="product-detail-description">${productname.description}</div>
-        <button  class="product-detail-addtocart" onclick="cartdatasave(); openNav();" data_Id=${productname.product_id}>Add to Cart</button>
+        <button  class="product-detail-addtocart" onclick="addtocart(); openNav();" data_Id=${productname.product_id}>Add to Cart</button>
     </div>
 </div>`;
 
-    document.getElementById('display').innerHTML = card;
- 
-    document.getElementById('cart-items').innerHTML =  totalItemsInCart();
+document.getElementById('display').innerHTML = card;
+document.getElementById('cart-items').innerHTML =  totalItemsInCart();
+productHeaderContent = `<span class="navbar-brand mt-3 mb-3 home-content">Home / ${productname.product_name}</span>`;
+document.getElementById("product-content").innerHTML = productHeaderContent;
+
+
+
 });
 
 
@@ -47,12 +51,7 @@ cart = JSON.parse(localStorage.getItem('cartItems'));
 
 
 
-
-
-
-
-
-const cartdatasave = () => {
+const addtocart = () => {
     console.log("inside cart save function");
     const finalProduct = localStorage.getItem('ProductName');
     const product = JSON.parse(finalProduct);
@@ -63,6 +62,7 @@ const cartdatasave = () => {
         cart = [];
         cart.push(product);
         localStorage.setItem('cartItems', JSON.stringify(cart));
+        openNav();
         document.getElementById('cart-items').innerHTML =  totalItemsInCart();
     }
 
@@ -86,12 +86,7 @@ const totalItemsInCart = () =>{
 
 const setCartItem = (product) => {
 
-    /*    if (cart === null) {
-           cart = [];
-           cart.push(product);
-           localStorage.setItem('cartItems', JSON.stringify(cart));
-           console.log(" IN IF")
-       } else { */
+  
     console.log(" in FIRST ELSE")
     let currentProduct = cart.filter((itm) => itm.product_id === product.product_id);
     if (currentProduct.length > 0) {
@@ -101,12 +96,7 @@ const setCartItem = (product) => {
 
         // console.log(currentProduct[0].);
         increment(currentProduct[0].product_id);
-        // currentProduct[0].quantity++;
-
-        // console.log("after increase quantity", currentProduct);
-
-        // localStorage.setItem('cartItems', JSON.stringify(cart));
-        // openNav()
+     
     } else {
         console.log(" INNESTED ELSEE")
         cart.push(product);
@@ -119,10 +109,12 @@ const setCartItem = (product) => {
 }
 
 const openNav = () => {
-    document.getElementById('backdrops').style.display ="block";
-
+    console.log("inside open nav");
+    
     console.log("Inside drawer..")
-    document.getElementById("mySidenav").style.width = "350px";
+    document.getElementById("mySidenav").style.width = "450px";
+    document.getElementById('backdrops').style.display ="block";
+    document.getElementById('empty-cart-image').style.display = 'block';
 
     //getting cart data from local storage and display
     const cart = localStorage.getItem('cartItems');
@@ -131,33 +123,37 @@ const openNav = () => {
 
 
     let cartCard = '';
-
+    
     cartItemsarray.map((item) => {
+        document.getElementById('empty-cart-image').style.display = 'none';
+
         cartCard += `<div class="product-drawer-page">
         <div class="image-div">
-            <img src="${item.imageUrl}" class="product_image">
+        <img src="${item.imageUrl}" class="product_image">
         </div>
         <div class="product-div">
-            <div class="product-details">
-                <p>${item.product_name}</p>
-                <p>&#8377; ${item.product_price}</p>
-                <p onclick="removeCartItem(\'` + item.product_id + `\')">remove</p>
-            </div>
+        <div class="product-details">
+        <p class="product-name">${item.product_name}</p>
+        <p>&#8377; ${item.product_price}</p>
+        <p class="remove-icon mt-1" onclick="removeCartItem(\'` + item.product_id + `\')">remove</p>
+        </div>
         </div>
         <div class="quantity-div">
-            <p onclick="increment(\'` + item.product_id + `\')">&Hat;</p>
-            <p>${item.quantity}</p>
-            <p onclick="decrement(\'` + item.product_id + `\')">&#8964;</p>
+       <p onclick="increment(\'` + item.product_id + `\')">&Hat;</p>
+        <p><b>${item.quantity}</b></p>
+        <p onclick="decrement(\'` + item.product_id + `\')">&#8964;</p>
         </div>
-    </div>`;
-    })
-    if (cartItemsarray) {
+        </div>`;
+    }) 
 
-        document.getElementById('displayCartItems').innerHTML = cartCard;
-    }
-    else {
-        document.getElementById('displayCartItems').innerHTML = 'No items in cart';
-    }
+
+
+
+    
+    // document.getElementById('empty-cart-image').style.display ='none';
+    
+    document.getElementById('displayCartItems').innerHTML = cartCard;
+    
 
     document.getElementById('price').innerHTML = totalPrice();
     document.getElementById('cart-items').innerHTML =  totalItemsInCart();
@@ -174,7 +170,7 @@ const increment = (id) => {
     currentProduct[0].quantity++;
     console.log("after increase quantity", currentProduct);
     localStorage.setItem('cartItems', JSON.stringify(cart));
-    openNav()
+    openNav();
 }
 
 const decrement = (id) => {
@@ -189,12 +185,16 @@ const decrement = (id) => {
     localStorage.setItem('cartItems', JSON.stringify(cart));
     openNav()
 }
+
 const removeCartItem = (id) => {
-    console.log("In remove cart");
-    let currentProduct = cart.filter((itm) => itm.product_id === id);
+    console.log("In remove cart", id);
+    // cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    id=parseInt(id);
+    let currentProduct = cart.filter((itm) => parseInt(itm.product_id) === id);
     console.log("product to be removed ", currentProduct);
     // currentProduct = [];
-    cart.splice(currentProduct[0].id,1);
+    // console.log(currentProduct[0].product_name);
+    cart.splice(cart.indexOf(currentProduct[0]),1);
     console.log("after removing product: ", cart);
     localStorage.setItem('cartItems', JSON.stringify(cart));
     openNav();
@@ -215,12 +215,15 @@ const clearcart = () => {
     localStorage.removeItem('cartItems');
     // cart = [];
     // localStorage.setItem('cartItems', cart);
-    document.getElementById('displayCartItems').innerHTML = 'No items in cart';
+    
+    document.getElementById('displayCartItems').innerHTML = 'No Items In Cart';
     openNav();
 }
 
 
-
+// function truncate(str, n){
+//     return (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
+//   };
 
 
 

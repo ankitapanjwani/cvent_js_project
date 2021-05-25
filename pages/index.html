@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <!-- Home Page CSS -->
     <link rel="stylesheet" href="../css/productdetail.css">
-    <link rel="stylesheet" href="../css/homePage.css">
+    <link rel="stylesheet" href="../css/index.css">
     <!-- Axios Script -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Session Js Script -->
@@ -26,14 +26,20 @@
     <!-- HomePage Js Script -->
     <script src="../js/productDetail.js"></script>
 
-    <script src="../js/homePage.js"></script>
+    <script src="../js/index.js"></script>
 </head>
 
 <body>
+
+    <!-- Drawer Section -->
     <div id="mySidenav" class="sidenav">
         <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
 
         <h4>Your Bag</h4>
+        <div id="empty-cart-image">
+            <h1>Empty Cart </h1>
+            <img src="../assets/empty-cart.png" height="100" width="100" />
+        </div>
 
         <div id="displayCartItems">
             <!-- <div class="product-drawer-page">
@@ -56,25 +62,23 @@
         </div>
 
         <div class="clear-cart-button">
-            <h5 class="drawer-price-section">Total:  &#8377; <p id="price"></p></h5>
+            <h5 class="drawer-price-section">Total:  &#8377; <p id="price">0</p></h5>
              <button onclick="clearcart()">Clear cart</button>
              <button class="mt-2">Checkout</button>
          </div>
     </div>
 
 
-    
-    <div class="hero-image"></div>
+    <!-- Hero Image -->
+    <section class="hero-image"></section>
+
+    <!-- Hero Image Navbar and Content -->
     <div class="hero-section">
 
-
-
-        <div id="backdrops" onclick="closeNav()"></div>
-
         <!-- Nav bar -->
-        <div class="comfy-navbar">
+        <nav class="comfy-navbar">
             <div class="links">
-                <p><a href="#"><u>Home</u> </a> </p>
+                <p><a href="#">Home </a> </p>
                 <p><a href="../pages/allProducts.html">Products</a> </p>
                 <p><a href="#">About</a> </p>
             </div>
@@ -88,8 +92,7 @@
                 </div>
                 <div class="login-link" id="login-button"><a href="../pages/login.html">Login</a></div>
             </div>
-        </div>
-
+        </nav>
 
         <!-- hero image content -->
         <div class="hero-image-content">
@@ -98,14 +101,17 @@
             <button type="button" class="btn btn-outline-light"><a href="../pages/allProducts.html">SHOP NOW</a>
             </button>
         </div>
-
-
     </div>
 
+    <!-- Backdrop Section -->
+    <div id="backdrops" onclick="closeNav()"></div>
+
+
+    <!-- Featured Products Section -->
     <div class="featured-products-section">
-        <div>
+        <header>
             <h1>Featured</h1>
-        </div>
+        </header>
 
         <div class="products" id="display">
 

@@ -1,3 +1,12 @@
+/* Global css */
+:root{
+    --text-color: white;
+    --image-border-radius: 5px;
+    --button-badge-color: coral;
+    --font-weight-heroImageContent-price: bold;
+    --fontFamily-titles: 'Kaushan Script', cursive;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,12 +14,9 @@
     font-family: "Cabin", sans-serif;
     font-weight: 100;
   }
-  
- 
-.hero-image{
 
+.hero-image{
     background-image: url("https://cdn.pixabay.com/photo/2016/03/27/19/00/coffee-1283672_960_720.jpg");
-    /* height: 100%; */
     width: 100%;
     height: 50rem;
     background-repeat: no-repeat; 
@@ -21,7 +27,8 @@
 .comfy-navbar{
     /* background-color: rgb(0,0,0); Fallback color */
     /* background-color: rgba(0,0,0, 0.4); Black w/opacity/see-through */
-    color: white;
+    
+    color:  var(--text-color);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,20 +49,18 @@
     align-items: center;
     width: 45%;
     margin-left: 5%;
-    /* justify-content: space-around; */
-    /* background-color: chocolate; */
+    
 }
 .links p{
     margin-left: 10%;
 }
 .links a{
     text-decoration: none;
-    color: white;
+    color:  var(--text-color);
 }
 
 .comfy-title{
-    /* text-align: center; */
-    font-family: 'Kaushan Script', cursive;
+    font-family: var(--fontFamily-titles);
     font-size: 25px;
     width: 45%;
 }
@@ -68,8 +73,6 @@
     justify-content: space-between;
     cursor: pointer;
     width: 10%;
-    /* position: absolute; */
-    
 }
 
 .icon-icon-badge{
@@ -83,15 +86,14 @@
 }
 .login-link a{
     text-decoration: none;
-    color: white;
-
+    color:  var(--text-color);
 }
 
 #cart-items{
   height: 25px;
   width: 25px;
   text-align: center;
-  background-color: coral;
+  background-color: var(--button-badge-color);
   border-radius: 50%;
 }
 .icon{
@@ -100,9 +102,8 @@
 }
 .hero-image-content{
     
-    /* background-color: rgb(0,0,0); */
-    /* background-color: rgba(0,0,0, 0.0); Black w/opacity/see-through */
-    color: white;
+    
+    color:  var(--text-color);
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -110,7 +111,7 @@
     left: 30%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    font-weight: bold;
+    font-weight: var(--font-weight-heroImageContent-price);
 
 }
 .hero-image-content button{
@@ -118,15 +119,16 @@
 }
 
 .hero-image-content h1{
-    font-family: 'Kaushan Script', cursive;
+    font-family: var(--fontFamily-titles);
 }
 .hero-image-content a{
     text-decoration: none;
-    color: white;
+    
+    color:  var(--text-color);
 }
 .hero-image-content button:hover{
     background-color: black;
-    color: white;
+    color:  var(--text-color);
 }
 .featured-products-section{
     display: flex;
@@ -139,20 +141,18 @@
 }
 .featured-products-section h1{
     font-size: 45px;
-    font-family: 'Kaushan Script', cursive;
+    font-family: var(--fontFamily-titles);
 }
 .products{
     display: flex;
     flex-direction: row;
     align-items: center;
-  
-    justify-content: center;    /* justify-content: space-around; */
-    /* margin-left: 5%; */
+    justify-content: center;   
     width: 100%;
 }
 .allproducts-button button{
     padding: 10px;
-    background-color: coral;
+    background-color: var(--button-badge-color);
     border: 1px solid coral;
     width: 200px;
     margin-bottom: 30%;
@@ -163,29 +163,25 @@
 
 .allproducts-button a{
     text-decoration: none;
-    color: white;
+    color:  var(--text-color);
 }
 
 .featured-products{
-    /* margin-top: 50%; */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
     margin-left: 2%;
     align-items: center;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     height: 250px;
 }
 .featured-product-image{
-    border-radius: 5px;
-    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
-    /* border: 1px solid black; */
+    border-radius: var(--image-border-radius);
     height: 150px;
     width: 300px;
 }
 
 .featured-product-image img{
-    border-radius: 5px;
+    border-radius: var(--image-border-radius);
     width: 100%;
     height: 100%;
 }
@@ -195,6 +191,6 @@
 }
 
 .price-bold{
-    font-weight: bold;
+    font-weight: var(--font-weight-heroImageContent-price);
 }
 

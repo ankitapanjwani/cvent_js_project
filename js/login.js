@@ -20,12 +20,12 @@ window.addEventListener('load', async (event) => {
       if (user[0].password === lgnData.password) {
         createSession(user[0].id, email, 'user');
 
-        window.location.href = "../pages/homePage.html";
+        window.location.href = "../pages/index.html";
       } else {
       document.getElementById('error-msg').innerText = 'Invalid user Id or Password';
       }
     } else {
-      document.getElementById('error-msg').innerText = 'Invalid user Id or Password';
+      document.getElementById('error-msg').innerText = 'No such user exists';
     }
 
   });
@@ -46,16 +46,3 @@ async function getUser(email) {
 }
 
 
-// async function getUser(email) {
-//   const user = await $.ajax({
-//     url: 'http://localhost:3000/user?email=' + email,
-//     method: 'GET',
-//     success: (x) => {
-//       // flag = 1;
-//       return x;
-//     },
-//     error: (x) => {
-//     },
-//   });
-//   return user;
-// }

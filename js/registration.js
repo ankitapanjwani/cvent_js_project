@@ -8,8 +8,7 @@ class userData {
         this.email = email;
         this.password = password;
         this.mob = mob;
-        this.securityQuestion = securityQuestion;
-        this.securityAnswer = securityAnswer;
+       
     }
 }
 
@@ -36,9 +35,7 @@ window.addEventListener('load', async (event) => {
         const email = document.getElementById('email').value;
         const mob = document.getElementById('mobile').value;
         const password = md5(document.getElementById('password').value);
-        const securityque = document.getElementById('securityque').value;
-        const securityans = document.getElementById('securityans').value;
-
+      
 
 
         if (isFormValid()) {
@@ -48,12 +45,9 @@ window.addEventListener('load', async (event) => {
             const flag = (await isUserExist(email));
             console.log(flag);
             if (!flag) {
-                const userdata = new userData(userId, firstname, lastname, email, password, mob, securityque, securityans);
+                const userdata = new userData(userId, firstname, lastname, email, password, mob);
                 addUser(userdata);
                 window.location.href = "../pages/login.html";
-
-
-                // $(location).attr('href', '../pages/login.html');
             } else {
                 document.getElementById('error-msg').innerText = 'User account with this Email Id Already exists!!!!';
             }

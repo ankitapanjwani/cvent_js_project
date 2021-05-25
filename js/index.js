@@ -9,8 +9,8 @@ window.addEventListener('load', async (event) => {
     let featuredProducts = products.filter((item) => item.featured === true);
     console.log(featuredProducts);
     featuredProducts.map((item) => {
-
-        card += `<div class="featured-products">
+// id in  root element 
+        card += `<div class="featured-products" >
         <div class="featured-product-image"><img src="${item.imageUrl}" alt="chair"></div>
         <p>${item.product_name}</p>
         <p class="price-bold">&#8377; ${item.product_price}</p>
